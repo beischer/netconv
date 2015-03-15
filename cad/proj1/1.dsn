@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--This file was written by TinyCAD version 2.50.10
+If you wish to view this file go to http://tinycad.sourceforge.net to
+download a copy.-->
+<TinyCADSheets><TinyCAD><NAME>Sheet 1</NAME>
+<DETAILS><Size width='2100' height='1485'/>
+<GUIDES horiz='7' vert='5'/>
+<TITLE></TITLE>
+<AUTHOR></AUTHOR>
+<REVISION>1.0</REVISION>
+<DOCNUMBER></DOCNUMBER>
+<ORGANISATION></ORGANISATION>
+<SHEETS>1 of 1</SHEETS>
+<SHOWS>3</SHOWS>
+<DATE></DATE>
+<GRID spacing='100' snap='1'/>
+</DETAILS>
+<FONT id='1'><HEIGHT>-10</HEIGHT>
+<WIDTH>0</WIDTH>
+<WEIGHT>400</WEIGHT>
+<ITALIC>0</ITALIC>
+<UNDERLINE>0</UNDERLINE>
+<STRIKEOUT>0</STRIKEOUT>
+<CHARSET>0</CHARSET>
+<FACENAME>Arial</FACENAME>
+</FONT>
+<STYLE id='0'><STYLE>0</STYLE>
+<COLOR>000000</COLOR>
+<THICKNESS>1</THICKNESS>
+</STYLE>
+<STYLE id='2'><STYLE>0</STYLE>
+<COLOR>000000</COLOR>
+<THICKNESS>1</THICKNESS>
+</STYLE>
+<STYLE id='3'><STYLE>0</STYLE>
+<COLOR>000000</COLOR>
+<THICKNESS>1</THICKNESS>
+</STYLE>
+<STYLE id='4'><STYLE>0</STYLE>
+<COLOR>000000</COLOR>
+<THICKNESS>1</THICKNESS>
+</STYLE>
+<FILL id='0'><INDEX>-1</INDEX>
+<COLOR>000000</COLOR>
+</FILL>
+<SYMBOLDEF id='1'><NAME type='0'>HMR001/0</NAME>
+<REF type='0'>R?</REF>
+<DESCRIPTION>Resistor 0 ohm 0603</DESCRIPTION>
+<PPP>1</PPP>
+<FIELD><NAME>$$SPICE_PROLOG_PRIORITY</NAME>
+<DEFAULT>5</DEFAULT>
+<FT>000002</FT>
+<VALUE></VALUE>
+<POS>0,0</POS>
+</FIELD>
+<FIELD><NAME>$$SPICE_EPILOG_PRIORITY</NAME>
+<DEFAULT>5</DEFAULT>
+<FT>000002</FT>
+<VALUE></VALUE>
+<POS>0,0</POS>
+</FIELD>
+<FIELD><NAME>Package</NAME>
+<DEFAULT>package name for PCB layout</DEFAULT>
+<FT>000001</FT>
+<VALUE></VALUE>
+<POS>0,0</POS>
+</FIELD>
+<TinyCAD><PIN pos='-2,0' which='0' elec='4' direction='0' part='0' number='1' show='1' length='10' number_pos='0'></PIN>
+<POLYGON pos='-3,-6.4' style='2' fill='0'><POINT pos='2,0' arc='0'/>
+<POINT pos='0,1' arc='0'/>
+</POLYGON>
+<POLYGON pos='-3,-7.4' style='2' fill='0'><POINT pos='0,0' arc='0'/>
+<POINT pos='2,1' arc='0'/>
+</POLYGON>
+<POLYGON pos='-3,-5.4' style='3' fill='0'><POINT pos='0,0' arc='0'/>
+<POINT pos='2,1' arc='0'/>
+</POLYGON>
+<POLYGON pos='-3,-4.4' style='4' fill='0'><POINT pos='2,0' arc='0'/>
+<POINT pos='0,1' arc='0'/>
+</POLYGON>
+<POLYGON pos='-3,-3.4' style='0' fill='0'><POINT pos='0,0' arc='0'/>
+<POINT pos='2,1' arc='0'/>
+</POLYGON>
+<POLYGON pos='-3,-7.8' style='2' fill='0'><POINT pos='0,0.4' arc='0'/>
+<POINT pos='1,-0.16' arc='0'/>
+</POLYGON>
+<POLYGON pos='-2,-2.4' style='0' fill='0'><POINT pos='0,0.4' arc='0'/>
+<POINT pos='1,0' arc='0'/>
+</POLYGON>
+<PIN pos='-2,-10' which='0' elec='0' direction='1' part='0' number='2' show='1' length='10' number_pos='0'></PIN>
+</TinyCAD>
+</SYMBOLDEF>
+<OPTIONS><GRID>1</GRID>
+<UNITS>0</UNITS>
+<COLOR_WIRE>FF0000</COLOR_WIRE>
+<COLOR_BUS>0000FF</COLOR_BUS>
+<COLOR_JUNCTION>000000</COLOR_JUNCTION>
+<COLOR_NOCONNECT>000000</COLOR_NOCONNECT>
+<COLOR_LABEL>208000</COLOR_LABEL>
+<COLOR_POWER>000000</COLOR_POWER>
+<COLOR_PIN>4040C0</COLOR_PIN>
+<COLOR_HIDDEN_PIN>208020</COLOR_HIDDEN_PIN>
+<COLOR_BACKGROUND>FFFFFF</COLOR_BACKGROUND>
+</OPTIONS>
+<SYMBOL id='1' pos='54,38' part='0' rotate='3' can_scale='0' scale_x='1' scale_y='1'><FIELD type='0' description='Ref' value='R100' show='1' pos='-10,2'/>
+<FIELD type='0' description='Name' value='HMR001/0' show='1' pos='-10,-4'/>
+<FIELD type='2' description='$$SPICE_PROLOG_PRIORITY' value='5' show='0' pos='0,0'/>
+<FIELD type='2' description='$$SPICE_EPILOG_PRIORITY' value='5' show='0' pos='0,0'/>
+<FIELD type='1' description='Package' value='package name for PCB layout' show='0' pos='-10,4.4'/>
+</SYMBOL>
+<SYMBOL id='1' pos='54,54' part='0' rotate='3' can_scale='0' scale_x='1' scale_y='1'><FIELD type='0' description='Ref' value='R101' show='1' pos='-10,2'/>
+<FIELD type='0' description='Name' value='HMR001/10k' show='1' pos='-10,-4'/>
+<FIELD type='2' description='$$SPICE_PROLOG_PRIORITY' value='5' show='0' pos='0,0'/>
+<FIELD type='2' description='$$SPICE_EPILOG_PRIORITY' value='5' show='0' pos='0,0'/>
+<FIELD type='1' description='Package' value='package name for PCB layout' show='0' pos='-10,4.4'/>
+</SYMBOL>
+<WIRE a='44,36' b='28,36'/>
+<WIRE a='28,36' b='28,52'/>
+<WIRE a='28,52' b='44,52'/>
+<WIRE a='54,52' b='70,52'/>
+<WIRE a='70,52' b='70,36'/>
+<WIRE a='70,36' b='54,36'/>
+</TinyCAD>
+</TinyCADSheets>

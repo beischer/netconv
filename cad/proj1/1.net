@@ -1,0 +1,18 @@
+; ====+  Net List for C:\svn\mbfiles\trunk\netconv\cad\proj1\1.dsn  +====
+
+; ======+ The component list
+
+COMPONENT 'R100' = HMR001/0
+	OPTION '$$SPICE_PROLOG_PRIORITY' = 5
+	OPTION '$$SPICE_EPILOG_PRIORITY' = 5
+	OPTION 'Package' = package name for PCB layout
+COMPONENT 'R101' = HMR001/10k
+	OPTION '$$SPICE_PROLOG_PRIORITY' = 5
+	OPTION '$$SPICE_EPILOG_PRIORITY' = 5
+	OPTION 'Package' = package name for PCB layout
+
+
+; ======+ The net list
+
+NET  'N000000' =  (R100,1),(R101,1)
+NET  'N000001' =  (R101,2),(R100,2)
