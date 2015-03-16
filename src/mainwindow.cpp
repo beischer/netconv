@@ -19,7 +19,7 @@
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 {
-    //setupUi(this);
+    setGeometry(200, 100, 700, 350);
 
     inputNetlistLabel = new QLabel("Input TinyCAD netlist");
     inputNetlistLineEdit = new QLineEdit();
@@ -40,7 +40,6 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 
     mainGridLayout = new QGridLayout();
 
-
     mainWidget = new QWidget(this);
 
     mainGridLayout->addWidget(inputNetlistLabel, 0, 0, 1, 2);
@@ -59,6 +58,10 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 
     mainGridLayout->addWidget(consoleLabel, 7, 0, 1, 1);
     mainGridLayout->addWidget(consoleTextEdit, 8, 0, 1, 3);
+
+    mainGridLayout->setColumnStretch(0, 0);
+    mainGridLayout->setColumnStretch(1, 1);
+    mainGridLayout->setColumnStretch(2, 0);
 
     mainWidget->setLayout(mainGridLayout);
     setCentralWidget(mainWidget);
@@ -151,8 +154,7 @@ void MainWindow::Convert(){
         delete my_tinycad;
         delete my_kicad_2013;
 
-} 
-
+}
 
 void MainWindow::exit(){
     saveSettings();
@@ -163,7 +165,7 @@ void MainWindow::aboutNetconv(){
     QMessageBox::about(this, "About Netconv",
                        "Netconv is a net list conversion tool for TinyCAD and KiCAD pcbnew.\n\n"
                        "Copyright 2007-2015 Magnus Beischer.\n"
-                       "Version: 1.6 (relase date 2015-03-15)\n\n"
+                       "Version: 1.6 (relase date 2015-03-16)\n\n"
                        "magnus@beischer.com");
 }
 
