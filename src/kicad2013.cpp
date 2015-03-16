@@ -33,9 +33,9 @@ QStringList KiCAD2013::MakeNetList(QTextEdit * console, QStringList TinyCADnetli
     mapfilelist = LoadMapfile(mapfile);
 
     // Start the kicad netlist
-    kicad_netlist.append("(export");
-    /* An example of the file that shall be created:
-       (export
+    kicad_netlist.append("(export (version D)");
+    /* An example of the file that shall be created: // The (version D) is needed to support KiCAD 2015- (at least)
+       (export (version D)
          (components
            (comp (ref Q1)
              (value BC237)
