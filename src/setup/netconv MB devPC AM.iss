@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Netconv"
-#define MyAppVerName "Netconv 1.5"
+#define MyAppVerName "Netconv 1.6"
 #define MyAppPublisher "Magnus Beischer"
 #define MyAppURL "http://www.beischer.com/"
 #define MyAppExeName "netconv.exe"
