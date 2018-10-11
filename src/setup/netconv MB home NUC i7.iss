@@ -24,7 +24,7 @@ AppUpdatesURL={#MyAppURL}
 DefaultDirName={pf}\Netconv
 DefaultGroupName={#MyAppName}
 AllowNoIcons=yes
-OutputBaseFilename=setup
+OutputBaseFilename=netconv-setup-1.6.1
 Compression=lzma
 SolidCompression=yes
 
@@ -41,9 +41,9 @@ Source: {#QTDIR}\bin\Qt5Core.dll; DestDir: {app}; Flags: ignoreversion
 Source: {#QTDIR}\bin\Qt5Gui.dll; DestDir: {app}; Flags: ignoreversion
 Source: {#QTDIR}\bin\Qt5Widgets.dll; DestDir: {app}; Flags: ignoreversion
 Source: {#QTDIR}\bin\libgcc_s_dw2-1.dll; DestDir: {app}; Flags: ignoreversion
-Source: {#QTDIR}\bin\icuin51.dll; DestDir: {app}; Flags: ignoreversion
-Source: {#QTDIR}\bin\icuuc51.dll; DestDir: {app}; Flags: ignoreversion
-Source: {#QTDIR}\bin\icudt51.dll; DestDir: {app}; Flags: ignoreversion
+;Source: {#QTDIR}\bin\icuin51.dll; DestDir: {app}; Flags: ignoreversion
+;Source: {#QTDIR}\bin\icuuc51.dll; DestDir: {app}; Flags: ignoreversion
+;Source: {#QTDIR}\bin\icudt51.dll; DestDir: {app}; Flags: ignoreversion
 Source: {#QTDIR}\bin\libstdc++-6.dll; DestDir: {app}; Flags: ignoreversion
 Source: {#QTDIR}\bin\libwinpthread-1.dll; DestDir: {app}; Flags: ignoreversion
 Source: {#QTDIR}\plugins\platforms\qwindows.dll; DestDir: {app}\platforms; Flags: ignoreversion
