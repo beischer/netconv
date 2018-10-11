@@ -129,12 +129,13 @@ QStringList KiCAD2013::LoadMapfile(QString mapfilename){
     return mapfilelist;
 }
 
-QString KiCAD2013::getSymbol(QTextEdit * console, QString product_number, QStringList mapfilelist){
-    QString mapfilelistrow, pn, symbol = "";
+QString KiCAD2013::getSymbol(QTextEdit * console, QString product_number_tinycad, QStringList mapfilelist){
+    QString mapfilelistrow, pn, productNumberMapFile, symbol = "";
     //qDebug() << "Coming in" << product_number;
     for(int j = 0; j <= mapfilelist.size() - 1 ; j++){
         // Get the product number from that row in the map file
-        if( mapfilelist.at(j).contains(product_number)){
+        productNumberMapFile = mapfilelist.at(j).section(" ", 0, 0);
+        if( productNumberMapFile == product_number_tinycad){
             // This row contains the product number
             mapfilelistrow  = mapfilelist.at(j).trimmed(); // Remove ending spaces
             // qDebug() << "This row contains the p.nr:" << mapfilelistrow;
@@ -145,14 +146,14 @@ QString KiCAD2013::getSymbol(QTextEdit * console, QString product_number, QStrin
                 return symbol;
             }
             else{
-                console->append("Error: " + product_number + " has no symbol in mapfile");
+                console->append("Error: " + product_number_tinycad + " has no symbol in mapfile");
                 return "FAKE-SYMBOL";
             }
         }
     }
     if(symbol == ""){
         // Product not found in map file
-        console->append("Error: " + product_number + " missing in mapfile");
+        console->append("Error: " + product_number_tinycad + " missing in mapfile");
         return "FAKE-SYMBOL";
     }
 }
