@@ -90,7 +90,7 @@ QStringList KiCAD2013::MakeNetList(QTextEdit * console, QStringList TinyCADnetli
             componentPartOfNetRow = componentPartOfNetRow.remove(" =  ");  // (D1,2),(D1,3)
             QStringList componentPinList;
             componentPinList = componentPartOfNetRow.split(","); // D1 2 D1 3  (in a list)
-            qDebug() << componentPinList;
+            //qDebug() << componentPinList;
             int node = 0;
             while(node < componentPinList.size()){
                 QString ref = componentPinList.at(node);
@@ -114,6 +114,7 @@ QStringList KiCAD2013::LoadMapfile(QString mapfilename){
 	QFile infile(mapfilename);
     QStringList mapfilelist;
     QTextStream in(&infile);
+    QString readRow;
 
     //qDebug() << "Netlist file:" << mapfilename;
     
@@ -124,7 +125,10 @@ QStringList KiCAD2013::LoadMapfile(QString mapfilename){
   
     while (!in.atEnd()) {
     	// Read entire netlist into the application
-    	mapfilelist.append( in.readLine() );
+        readRow = in.readLine();
+        // replace tab with space
+        readRow = readRow.replace(QRegExp("[\t]"), " ");
+        mapfilelist.append( readRow );
     }
     //qDebug("Netlist read");
     infile.close();
