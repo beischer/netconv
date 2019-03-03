@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Netconv"
-#define MyAppVerName "Netconv 1.6.1"
+#define MyAppVerName "Netconv 1.6.2"
 #define MyAppPublisher "Magnus Beischer"
 #define MyAppURL "https://github.com/beischer/netconv"
 #define MyAppExeName "netconv.exe"
@@ -24,7 +24,7 @@ AppUpdatesURL={#MyAppURL}
 DefaultDirName={pf}\Netconv
 DefaultGroupName={#MyAppName}
 AllowNoIcons=yes
-OutputBaseFilename=netconv-setup-1.6.1
+OutputBaseFilename=netconv-setup-1.6.2
 Compression=lzma
 SolidCompression=yes
 
