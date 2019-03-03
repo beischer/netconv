@@ -17,6 +17,8 @@
 #include "tinycad.h"
 #include "kicad2013.h"
 
+#define FILE_OPEN_BUTTON_WIDTH 25
+
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 {
     setGeometry(200, 100, 700, 350);
@@ -24,14 +26,17 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
     inputNetlistLabel = new QLabel("Input TinyCAD netlist");
     inputNetlistLineEdit = new QLineEdit();
     chooseInputNetlistPushButton = new QPushButton("...");
+    chooseInputNetlistPushButton->setMaximumWidth(FILE_OPEN_BUTTON_WIDTH);
 
     inputMapFileLabel = new QLabel("KiCAD product number to footprint map file");
     inputMapFileLineEdit = new QLineEdit();
     chooseMapFilePushButton = new QPushButton("...");
+    chooseMapFilePushButton->setMaximumWidth(FILE_OPEN_BUTTON_WIDTH);
 
     outputNetlistLabel = new QLabel("Output KiCAD netlist");
     outputNetlistLineEdit = new QLineEdit();
     chooseOutputNetlistPushButton = new QPushButton("...");
+    chooseOutputNetlistPushButton->setMaximumWidth(FILE_OPEN_BUTTON_WIDTH);
 
     convertPushButton = new QPushButton("Do Convert!");
 
