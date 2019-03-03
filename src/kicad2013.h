@@ -14,8 +14,8 @@ class KiCAD2013
 public:
     KiCAD2013();
     QStringList MakeNetList(QTextEdit * con, QStringList TinyCADnetlist, QString mapfile);
-    QStringList LoadMapfile(QString mapfilename);
-    QString getSymbol(QTextEdit * console, QString product_number_tinycad, QStringList mapfilelist);
+    QHash<QString, QString> LoadMapfile(QString mapfilename);
+    QString getSymbol(QTextEdit * console, QString product_number_tinycad, QHash<QString, QString> mapfilelist);
         
 private slots:
    

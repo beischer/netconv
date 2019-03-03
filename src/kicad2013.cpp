@@ -25,7 +25,8 @@ KiCAD2013::KiCAD2013(){
 }
 
 QStringList KiCAD2013::MakeNetList(QTextEdit * console, QStringList TinyCADnetlist, QString mapfile){
-    QStringList mapfilelist;
+    //QStringList mapfilelist;
+    QHash<QString, QString> mapfilelist;
     QStringList poslist;
     QStringList kicad_netlist;
 
@@ -110,13 +111,11 @@ QStringList KiCAD2013::MakeNetList(QTextEdit * console, QStringList TinyCADnetli
     return kicad_netlist;
 }
 
-QStringList KiCAD2013::LoadMapfile(QString mapfilename){
+QHash<QString, QString> KiCAD2013::LoadMapfile(QString mapfilename){
 	QFile infile(mapfilename);
-    QStringList mapfilelist;
+    QHash<QString, QString> mapfilelist;
     QTextStream in(&infile);
     QString readRow;
-
-    //qDebug() << "Netlist file:" << mapfilename;
     
     if (!infile.open(QIODevice::ReadOnly | QIODevice::Text)){
     	qDebug("KiCAD::Could not open file");
@@ -128,40 +127,28 @@ QStringList KiCAD2013::LoadMapfile(QString mapfilename){
         readRow = in.readLine();
         // replace tab with space
         readRow = readRow.replace(QRegExp("[\t]"), " ");
-        mapfilelist.append( readRow );
+        readRow = readRow.trimmed();
+        //qDebug() << readRow;
+        if(readRow.contains(" ")){
+            // We have both product number and symbol
+            // Split the string
+            QStringList splitString;
+            splitString = readRow.split(" ", QString::SkipEmptyParts);
+            mapfilelist.insert(splitString.at(0), splitString.at(1));
+        }
     }
-    //qDebug("Netlist read");
-    infile.close();
 
+    infile.close();
     return mapfilelist;
 }
 
-QString KiCAD2013::getSymbol(QTextEdit * console, QString product_number_tinycad, QStringList mapfilelist){
+QString KiCAD2013::getSymbol(QTextEdit * console, QString product_number_tinycad, QHash<QString, QString> mapfilelist){
     QString mapfilelistrow, pn, productNumberMapFile, symbol = "";
-    //qDebug() << "Coming in" << product_number;
-    for(int j = 0; j <= mapfilelist.size() - 1 ; j++){
-        // Get the product number from that row in the map file
-        productNumberMapFile = mapfilelist.at(j).section(" ", 0, 0);
-        if( productNumberMapFile == product_number_tinycad){
-            // This row contains the product number
-            mapfilelistrow  = mapfilelist.at(j).trimmed(); // Remove ending spaces
-            // qDebug() << "This row contains the p.nr:" << mapfilelistrow;
-            //qDebug() << "Temp=" << temp;
-            if(mapfilelistrow.contains(" ")){
-                // The line has got both product no and a symbol
-                symbol = mapfilelistrow.section(" ", -1, -1);
-                return symbol;
-            }
-            else{
-                console->append("Error: " + product_number_tinycad + " has no symbol in mapfile");
-                return "FAKE-SYMBOL";
-            }
-        }
+    if(mapfilelist.contains(product_number_tinycad)){
+        return mapfilelist.value(product_number_tinycad);
     }
-    if(symbol == ""){
-        // Product not found in map file
+    else{
         console->append("Error: " + product_number_tinycad + " missing in mapfile");
         return "FAKE-SYMBOL";
     }
-    return "FAKE-SYMBOL"; // If nothing else has returned earlier, just return "FAKE-SYMBOL"
 }

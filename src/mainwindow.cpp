@@ -117,7 +117,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
     else{
         outputNetlistLineEdit->setText("No saved settings");
     }
-    consoleTextEdit->append("Netconv 1.6.2 (release 2019-03-03)");
+    consoleTextEdit->append("Netconv 1.6.3 (release 2019-03-04)");
 }
 
 void MainWindow::Convert(){
@@ -170,7 +170,7 @@ void MainWindow::aboutNetconv(){
     QMessageBox::about(this, "About Netconv",
                        "Netconv is a net list conversion tool for TinyCAD and KiCAD pcbnew.\n\n"
                        "Copyright 2007-2018 Magnus Beischer.\n"
-                       "Version: 1.6.1 (relase date 2018-10-11)\n\n"
+                       "Version: 1.6.3 (relase date 2019-03-04)\n\n"
                        "magnus@beischer.com");
 }
 
