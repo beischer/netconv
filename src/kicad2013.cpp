@@ -95,7 +95,10 @@ QStringList KiCAD2013::MakeNetList(QTextEdit * console, QStringList TinyCADnetli
             while(node < componentPinList.size()){
                 QString ref = componentPinList.at(node);
                 QString pin = componentPinList.at(node + 1);
-                kicad_netlist.append("      (node (ref " + ref.remove("(") + ") (pin " + pin.remove(")") + "))");
+                // ref must be a real component (pos) included in the component list (not a hierarcical symbol)
+                if(poslist.contains(ref.remove("("))){
+                    kicad_netlist.append("      (node (ref " + ref.remove("(") + ") (pin " + pin.remove(")") + "))");
+                }
                 node = node + 2;
             }
             kicad_netlist.append("    )"); // Ending the net tag
@@ -156,4 +159,5 @@ QString KiCAD2013::getSymbol(QTextEdit * console, QString product_number_tinycad
         console->append("Error: " + product_number_tinycad + " missing in mapfile");
         return "FAKE-SYMBOL";
     }
+    return "FAKE-SYMBOL"; // If nothing else has returned earlier, just return "FAKE-SYMBOL"
 }
