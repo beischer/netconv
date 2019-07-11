@@ -7,6 +7,8 @@
 #ifndef TINYCAD_H
 #define TINYCAD_H
 
+#include <QtWidgets>
+
 
 class TinyCAD
 {
@@ -16,6 +18,7 @@ public:
     QStringList cleanNetlist(QStringList dirtynetlist);
     QStringList getPosList(QStringList netlist);
     QString getProductNumberByPos(QTextEdit * console, QStringList TinyCADnetlist, QString pos);
+    QString getOptionByPos(QTextEdit * console, QStringList TinyCADnetlist, QString pos, QString option);
     QStringList getListOfPinsAndNetNames(QStringList TinyCADnetlist, QString pos);
     int NumberOfComponents(QStringList netlist);
     int NumberOfNets(QStringList netlist);

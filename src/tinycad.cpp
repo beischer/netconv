@@ -138,6 +138,42 @@ QString TinyCAD::getProductNumberByPos(QTextEdit * console, QStringList TinyCADn
     return product_number;
 }
 
+QString TinyCAD::getOptionByPos(QTextEdit * console, QStringList TinyCADnetlist, QString pos, QString optionName){
+    QString netlistrow, error_message;
+    QString product_number = "";
+
+    for(int j = 0; j <= TinyCADnetlist.size() - 1 ; j++){
+        if( TinyCADnetlist.at(j).startsWith(QString("COMPONENT ") )){
+            if( TinyCADnetlist.at(j).contains("'" + pos + "'")){
+                // This row contains the product number and the searched pos
+                for (int k = j; k<=TinyCADnetlist.size() - 1;k++){
+                    // Starting at the row after the one first found
+                    // Is the row an "OPTION" row?
+                    if(TinyCADnetlist.at(k).contains("OPTION '" + optionName +"'")){
+                        QString tmpRow = TinyCADnetlist.at(k);
+                        QStringList tmpList = tmpRow.split(" = ");
+                        if(tmpList.size() > 1){
+                            return tmpList.at(1); // returning the value of the option name
+                        }
+                        else{
+                            return "";
+                        }
+                    }
+                    if(TinyCADnetlist.size() > k){
+                        if(TinyCADnetlist.at(k+1).contains("COMPONENT ")){
+                            // Stop looking for option
+                            return "";
+                        }
+                    }
+                }
+                //error_message = "Error: Option not found for " + pos;
+                //console->append(error_message);
+                return "";
+            }
+        }
+    }
+}
+
 QStringList TinyCAD::getListOfPinsAndNetNames(QStringList TinyCADnetlist, QString pos){
     QStringList list_of_pins_and_net_names;
     QString netlist_row, net_name, pin_name;

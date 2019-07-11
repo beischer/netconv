@@ -67,11 +67,17 @@ QStringList KiCAD2013::MakeNetList(QTextEdit * console, QStringList TinyCADnetli
         // product_number = "HMR001/0"
 
         product_number = my_tinyCAD->getProductNumberByPos(console, TinyCADnetlist, poslist.at(j));
+        QString optionMounted = my_tinyCAD->getOptionByPos(console, TinyCADnetlist, poslist.at(j), "value");
         symbol = getSymbol(console, product_number, mapfilelist);
 
         kicad_netlist.append("    (comp (ref " + poslist.at(j) + ")");
         kicad_netlist.append("      (value " + product_number + ")");
         kicad_netlist.append("      (footprint " + symbol + ")");
+        if(optionMounted == "##"){
+            kicad_netlist.append("      (fields ");
+            kicad_netlist.append("        (field (name DNP) ##)");
+            kicad_netlist.append("      )");
+        }
         kicad_netlist.append("    )");  // Ending this compoent
     }
     // Ending all components
