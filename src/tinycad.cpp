@@ -139,6 +139,7 @@ QString TinyCAD::getProductNumberByPos(QTextEdit * console, QStringList TinyCADn
 }
 
 QString TinyCAD::getOptionByPos(QTextEdit * console, QStringList TinyCADnetlist, QString pos, QString optionName){
+    Q_UNUSED(console)
     QString netlistrow, error_message;
     QString product_number = "";
 
@@ -159,7 +160,7 @@ QString TinyCAD::getOptionByPos(QTextEdit * console, QStringList TinyCADnetlist,
                             return "";
                         }
                     }
-                    if(TinyCADnetlist.size() > k){
+                    if(TinyCADnetlist.size() > (k + 1)){
                         if(TinyCADnetlist.at(k+1).contains("COMPONENT ")){
                             // Stop looking for option
                             return "";

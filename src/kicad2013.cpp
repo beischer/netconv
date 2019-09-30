@@ -69,7 +69,6 @@ QStringList KiCAD2013::MakeNetList(QTextEdit * console, QStringList TinyCADnetli
         product_number = my_tinyCAD->getProductNumberByPos(console, TinyCADnetlist, poslist.at(j));
         QString optionMounted = my_tinyCAD->getOptionByPos(console, TinyCADnetlist, poslist.at(j), "value");
         symbol = getSymbol(console, product_number, mapfilelist);
-
         kicad_netlist.append("    (comp (ref " + poslist.at(j) + ")");
         kicad_netlist.append("      (value " + product_number + ")");
         kicad_netlist.append("      (footprint " + symbol + ")");
@@ -83,7 +82,6 @@ QStringList KiCAD2013::MakeNetList(QTextEdit * console, QStringList TinyCADnetli
     // Ending all components
     kicad_netlist.append("  )");
     kicad_netlist.append("  (nets");
-
     // Loop through the net list
     for(int row = 0;row<TinyCADnetlist.size();row++){
         QString theRow = TinyCADnetlist.at(row);
