@@ -2,11 +2,11 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Netconv"
-#define MyAppVerName "Netconv 1.6"
+#define MyAppVerName "Netconv 1.6.5"
 #define MyAppPublisher "Magnus Beischer"
 #define MyAppURL "http://www.beischer.com/"
 #define MyAppExeName "netconv.exe"
-#define QTDIR "C:\Qt\5.1.1\mingw48_32"
+#define QTDIR "C:\Qt\5.8\mingw53_32"
 
 
 [Setup]
@@ -24,7 +24,7 @@ AppUpdatesURL={#MyAppURL}
 DefaultDirName={pf}\Netconv
 DefaultGroupName={#MyAppName}
 AllowNoIcons=yes
-OutputBaseFilename=setup
+OutputBaseFilename=NetconvInstall
 Compression=lzma
 SolidCompression=yes
 
@@ -36,14 +36,14 @@ Name: desktopicon; Description: {cm:CreateDesktopIcon}; GroupDescription: {cm:Ad
 Name: quicklaunchicon; Description: {cm:CreateQuickLaunchIcon}; GroupDescription: {cm:AdditionalIcons}; Flags: unchecked
 
 [Files]
-Source: ..\..\build-netconv-Desktop_Qt_5_1_1_MinGW_32bit-Release\release\netconv.exe; DestDir: {app}; Flags: ignoreversion
+Source: ..\..\build-netconv-Desktop_Qt_5_8_0_MinGW_32bit-Release\release\netconv.exe; DestDir: {app}; Flags: ignoreversion
 Source: {#QTDIR}\bin\Qt5Core.dll; DestDir: {app}; Flags: ignoreversion
 Source: {#QTDIR}\bin\Qt5Gui.dll; DestDir: {app}; Flags: ignoreversion
 Source: {#QTDIR}\bin\Qt5Widgets.dll; DestDir: {app}; Flags: ignoreversion
 Source: {#QTDIR}\bin\libgcc_s_dw2-1.dll; DestDir: {app}; Flags: ignoreversion
-Source: {#QTDIR}\bin\icuin51.dll; DestDir: {app}; Flags: ignoreversion
-Source: {#QTDIR}\bin\icuuc51.dll; DestDir: {app}; Flags: ignoreversion
-Source: {#QTDIR}\bin\icudt51.dll; DestDir: {app}; Flags: ignoreversion
+;Source: {#QTDIR}\bin\icuin51.dll; DestDir: {app}; Flags: ignoreversion
+;Source: {#QTDIR}\bin\icuuc51.dll; DestDir: {app}; Flags: ignoreversion
+;Source: {#QTDIR}\bin\icudt51.dll; DestDir: {app}; Flags: ignoreversion
 Source: {#QTDIR}\bin\libstdc++-6.dll; DestDir: {app}; Flags: ignoreversion
 Source: {#QTDIR}\bin\libwinpthread-1.dll; DestDir: {app}; Flags: ignoreversion
 Source: {#QTDIR}\plugins\platforms\qwindows.dll; DestDir: {app}\platforms; Flags: ignoreversion
