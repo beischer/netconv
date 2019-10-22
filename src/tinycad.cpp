@@ -150,7 +150,7 @@ QString TinyCAD::getOptionByPos(QTextEdit * console, QStringList TinyCADnetlist,
                 for (int k = j; k<=TinyCADnetlist.size() - 1;k++){
                     // Starting at the row after the one first found
                     // Is the row an "OPTION" row?
-                    if(TinyCADnetlist.at(k).contains("OPTION '" + optionName +"'")){
+                    if(TinyCADnetlist.at(k).toUpper().contains("OPTION '" + optionName.toUpper() +"'")){
                         QString tmpRow = TinyCADnetlist.at(k);
                         QStringList tmpList = tmpRow.split(" = ");
                         if(tmpList.size() > 1){

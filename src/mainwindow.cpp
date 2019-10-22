@@ -117,7 +117,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
     else{
         outputNetlistLineEdit->setText("No saved settings");
     }
-    consoleTextEdit->append("Netconv 1.6.5 (release 2019-10-01)");
+    consoleTextEdit->append("Netconv 1.6.6 (release 2019-10-22)");
 }
 
 void MainWindow::Convert(){
